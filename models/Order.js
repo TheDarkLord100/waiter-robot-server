@@ -9,7 +9,13 @@ const orderSchema = new mongoose.Schema(
         },
         order_status: {
             type: String,
-            enum: ['AWAITING', 'ONGOING', 'PLACED', 'PICKUP'],
+            enum: [
+                'AWAITING',
+                'ONGOING',
+                'PLACED',
+                'PICKUP',
+                'DELIVERING'
+            ],
             default: 'AWAITING',
         },
         order_items: [
@@ -29,10 +35,13 @@ const orderSchema = new mongoose.Schema(
             required: true,
             min: 0,
         },
-        createdAt: {
-            type: Date,
-            default: Date.now,
+        assigned_robot_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Robot',
+            default: null,
         },
+    },
+    { timestamps: true
     }
 );
 
