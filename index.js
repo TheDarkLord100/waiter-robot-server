@@ -5,7 +5,11 @@ const cors = require('cors');
 const morgan = require('morgan');
 const connectDB = require('./config/db');
 const http = require('http');
+// const { initWebSocket } = require('./ws');
 const { initWebSocket } = require('./ws');
+
+const teleopRoutes = require('./routes/teleopRoutes');
+
 
 const menuRoutes = require('./routes/menuRoutes');
 const orderRoutes = require('./routes/orderRoutes');
@@ -26,6 +30,8 @@ connectDB();
 app.use('/orders', orderRoutes);
 app.use('/menu', menuRoutes);
 app.use('/robot', robotRoutes);
+app.use('/teleop', teleopRoutes);
+
 
 app.get('/', (req, res) => {
   res.send('API is running...');
