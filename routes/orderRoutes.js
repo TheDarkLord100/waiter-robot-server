@@ -7,7 +7,7 @@ const orderController = require('../controllers/orController');
 router.post('/:table_id', orderController.createAwaitingOrder);
 
 // Dispatch awaiting order for table -> mark ONGOING
-router.post('/:table_id/dispatch', orderController.dispatchAwaitingOrder);
+// router.post('/:table_id/dispatch', orderController.dispatchAwaitingOrder);
 
 // Add items to order and place it
 router.post('/:order_id/place', orderController.placeOrder);
