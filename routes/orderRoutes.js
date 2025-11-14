@@ -1,7 +1,7 @@
 // routes/orderRoutes.js
 const express = require('express');
 const router = express.Router();
-const orderController = require('../controllers/OrderController');
+const orderController = require('../controllers/orderController');
 
 // Create awaiting order for table
 router.post('/:table_id', orderController.createAwaitingOrder);

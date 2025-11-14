@@ -9,6 +9,7 @@ const createAwaitingOrder = async (req, res) => {
   try {
     const { table_id } = req.params;
 
+    
 
     const order = new Order({
       table_id,
